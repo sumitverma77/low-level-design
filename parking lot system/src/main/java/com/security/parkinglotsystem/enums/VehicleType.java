@@ -1,5 +1,7 @@
 package com.security.parkinglotsystem.enums;
 
+import com.security.parkinglotsystem.exception.InvalidVehicleTypeException;
+
 import java.util.Arrays;
 
 public enum VehicleType {
@@ -13,14 +15,14 @@ public enum VehicleType {
         this.type = type;
     }
 
-    public String getType() {
-        return type;
-    }
-
     public static VehicleType fromString(String type) {
         return Arrays.stream(VehicleType.values())
                 .filter(vehicleType -> vehicleType.getType().equalsIgnoreCase(type))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Unknown vehicle type: " + type));
+                .orElseThrow(() -> new InvalidVehicleTypeException("Unknown vehicle type: " + type));
+    }
+
+    public String getType() {
+        return type;
     }
 }

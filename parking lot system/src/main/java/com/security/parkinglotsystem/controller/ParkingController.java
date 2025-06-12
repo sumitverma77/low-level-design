@@ -1,6 +1,9 @@
 package com.security.parkinglotsystem.controller;
 
-import com.security.parkinglotsystem.dto.VehicleRequestDTO;
+import com.security.parkinglotsystem.dto.ParkVehicleRequest;
+import com.security.parkinglotsystem.model.Ticket;
+import com.security.parkinglotsystem.service.ParkingService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/vehicle")
 public class ParkingController {
+    @Autowired
+    private ParkingService parkingService;
 
-    // Placeholder for future methods
-     @PostMapping("/park")
-     public ResponseEntity<String> parkVehicle(@RequestBody VehicleRequestDTO vehicle)
-     {
-         return ResponseEntity.ok("Vehicle parked successfully");
-
-     }
+    @PostMapping("/park")
+    public ResponseEntity<Ticket> parkVehicle(@RequestBody ParkVehicleRequest request) {
+        Ticket ticket = parkingService.parkVehicle(request);
+        return ResponseEntity.ok(ticket);
+    }
 }
