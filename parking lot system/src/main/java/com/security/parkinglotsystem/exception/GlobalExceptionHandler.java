@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice()
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(InvalidVehicleTypeException.class)
-    public ResponseEntity<String> handleInvalidVehicleTypeException(InvalidVehicleTypeException ex) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+    public ResponseEntity<ResponseWrapper<Object>> handleInvalidVehicleTypeException(InvalidVehicleTypeException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(new ResponseWrapper<>(ex.getMessage(), null));
     }
     @ExceptionHandler(NoAvailableSlotException.class)
     public ResponseEntity<ResponseWrapper<Object>> handleNoSlot(NoAvailableSlotException ex) {

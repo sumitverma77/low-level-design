@@ -12,7 +12,7 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ParkVehicleRequest {
     private String vehicleNumber;
-    private String VehicleType;
+    private String vehicleType;
 
 
 }
