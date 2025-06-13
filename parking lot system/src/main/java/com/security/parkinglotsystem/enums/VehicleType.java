@@ -1,5 +1,6 @@
 package com.security.parkinglotsystem.enums;
 
+import com.security.parkinglotsystem.constant.FallbackMessageConstant;
 import com.security.parkinglotsystem.exception.InvalidVehicleTypeException;
 
 import java.util.Arrays;
@@ -19,7 +20,7 @@ public enum VehicleType {
         return Arrays.stream(VehicleType.values())
                 .filter(vehicleType -> vehicleType.getType().equalsIgnoreCase(type))
                 .findFirst()
-                .orElseThrow(() -> new InvalidVehicleTypeException("Unknown vehicle type: " + type));
+                .orElseThrow(() -> new InvalidVehicleTypeException(FallbackMessageConstant.UNKNOWN_VEHICLE_TYPE + type));
     }
 
     public String getType() {
