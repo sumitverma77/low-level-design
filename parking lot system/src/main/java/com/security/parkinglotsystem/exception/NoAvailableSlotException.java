@@ -1,6 +1,6 @@
 package com.security.parkinglotsystem.exception;
 
-public class NoAvailableSlotException extends RuntimeException{
+public class NoAvailableSlotException extends RuntimeException {
 
     public NoAvailableSlotException(String message) {
         super(message);

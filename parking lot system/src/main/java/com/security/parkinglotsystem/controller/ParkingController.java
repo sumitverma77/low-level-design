@@ -19,9 +19,10 @@ public class ParkingController {
     private ParkingService parkingService;
 
     @PostMapping("/park")
-    public  ResponseEntity<ResponseWrapper<Ticket>> parkVehicle(@RequestBody ParkVehicleRequest request) {
-     return parkingService.parkVehicle(request);
+    public ResponseEntity<ResponseWrapper<Ticket>> parkVehicle(@RequestBody ParkVehicleRequest request) {
+        return parkingService.parkVehicle(request);
     }
+
     @PostMapping("/unpark")
     public ResponseEntity<ResponseWrapper<String>> unparkVehicle(@RequestBody UnparkVehicleRequest request) {
         return parkingService.unparkVehicle(request);

@@ -11,8 +11,9 @@ public class ParkingFloor {
 
     /**
      * Constructs a ParkingFloor object.
+     *
      * @param floorNumber the floor number of the parking floor
-     * @param slots the list of parking slots on the floor
+     * @param slots       the list of parking slots on the floor
      */
     public ParkingFloor(int floorNumber, List<ParkingSlot> slots) {
         this.floorNumber = floorNumber;
@@ -21,6 +22,7 @@ public class ParkingFloor {
 
     /**
      * Returns an available parking slot for the given vehicle type.
+     *
      * @param type the vehicle type to search for
      * @return an Optional containing the available ParkingSlot if found, otherwise empty Optional
      */
@@ -44,6 +46,7 @@ public class ParkingFloor {
 
     /**
      * Returns the floor number of the parking floor.
+     *
      * @return the floor number
      */
     public int getFloorNumber() {
@@ -52,6 +55,7 @@ public class ParkingFloor {
 
     /**
      * Returns the list of parking slots on the floor.
+     *
      * @return the list of parking slots
      */
     public List<ParkingSlot> getSlots() {

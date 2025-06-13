@@ -21,6 +21,7 @@ public class ParkingService {
 
     /**
      * Parks a vehicle in the parking lot.
+     *
      * @param request the request containing the vehicle type and number
      * @return a ResponseEntity containing a ResponseWrapper with the ticket information
      */
@@ -34,11 +35,13 @@ public class ParkingService {
 
     /**
      * Unparks a vehicle from the parking lot.
+     *
      * @param request the request containing the ticket id
      * @return a ResponseEntity containing a ResponseWrapper with a success message
      */
     public ResponseEntity<ResponseWrapper<String>> unparkVehicle(UnparkVehicleRequest request) {
         String ticketId = request.getTicketId();
-         return ResponseEntity.ok(new ResponseWrapper<>(FallbackMessageConstant.VEHICLE_UNPARKED_SUCCESSFULLY, parkingLotManager.unparkVehicle(ticketId)));
+        String freedSlotInfo = parkingLotManager.unparkVehicle(ticketId); // Assume this method now returns freed slot info
+        return ResponseEntity.ok(new ResponseWrapper<>(FallbackMessageConstant.VEHICLE_UNPARKED_SUCCESSFULLY, freedSlotInfo));
     }
 }

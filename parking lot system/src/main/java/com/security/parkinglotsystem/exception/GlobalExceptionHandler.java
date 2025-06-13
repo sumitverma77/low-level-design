@@ -13,16 +13,19 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(new ResponseWrapper<>(ex.getMessage(), null));
     }
+
     @ExceptionHandler(NoAvailableSlotException.class)
     public ResponseEntity<ResponseWrapper<Object>> handleNoSlot(NoAvailableSlotException ex) {
         return ResponseEntity.status(HttpStatus.CONFLICT)
                 .body(new ResponseWrapper<>(ex.getMessage(), null));
     }
+
     @ExceptionHandler(InvalidTicketException.class)
     public ResponseEntity<ResponseWrapper<Object>> handleInvalidTicket(InvalidTicketException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(new ResponseWrapper<>(ex.getMessage(), null));
     }
+
     @ExceptionHandler(FloorNotFoundException.class)
     public ResponseEntity<ResponseWrapper<Object>> handleFloorNotFound(FloorNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
