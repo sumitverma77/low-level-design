@@ -23,7 +23,9 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(new ResponseWrapper<>(ex.getMessage(), null));
     }
-
-
-
+    @ExceptionHandler(FloorNotFoundException.class)
+    public ResponseEntity<ResponseWrapper<Object>> handleFloorNotFound(FloorNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(new ResponseWrapper<>(ex.getMessage(), null));
+    }
 }

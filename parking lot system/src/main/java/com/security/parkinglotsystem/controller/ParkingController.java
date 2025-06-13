@@ -1,8 +1,8 @@
 package com.security.parkinglotsystem.controller;
 
-import com.security.parkinglotsystem.constant.FallbackMessageConstant;
 import com.security.parkinglotsystem.dto.ParkVehicleRequest;
 import com.security.parkinglotsystem.dto.ResponseWrapper;
+import com.security.parkinglotsystem.dto.UnparkVehicleRequest;
 import com.security.parkinglotsystem.model.Ticket;
 import com.security.parkinglotsystem.service.ParkingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class ParkingController {
      return parkingService.parkVehicle(request);
     }
     @PostMapping("/unpark")
-    public ResponseEntity<ResponseWrapper<String>> unparkVehicle(@RequestBody String ticketId) {
-        return parkingService.unparkVehicle(ticketId);
+    public ResponseEntity<ResponseWrapper<String>> unparkVehicle(@RequestBody UnparkVehicleRequest request) {
+        return parkingService.unparkVehicle(request);
     }
 }
