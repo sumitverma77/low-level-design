@@ -20,7 +20,10 @@ public class ParkingController {
 
     @PostMapping("/park")
     public  ResponseEntity<ResponseWrapper<Ticket>> parkVehicle(@RequestBody ParkVehicleRequest request) {
-        Ticket ticket = parkingService.parkVehicle(request);
-        return ResponseEntity.ok(new ResponseWrapper<>(FallbackMessageConstant.VEHICLE_PARKED_SUCCESSFULLY, ticket));
+     return parkingService.parkVehicle(request);
+    }
+    @PostMapping("/unpark")
+    public ResponseEntity<ResponseWrapper<String>> unparkVehicle(@RequestBody String ticketId) {
+        return parkingService.unparkVehicle(ticketId);
     }
 }

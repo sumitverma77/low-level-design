@@ -21,6 +21,15 @@ public class ParkingFloor {
         }
         return null;
     }
+    public ParkingSlot getSlot(int slotNumber) {
+        for (ParkingSlot slot : slots) {
+            if (slot.getSlotNumber() == slotNumber) {
+                return slot;
+            }
+        }
+        return null;
+    }
+
 
     public int getFloorNumber() {
         return floorNumber;
