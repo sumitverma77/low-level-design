@@ -1,5 +1,6 @@
 package com.security.parkinglotsystem.controller;
 
+import com.security.parkinglotsystem.constant.FallbackMessageConstant;
 import com.security.parkinglotsystem.dto.ParkVehicleRequest;
 import com.security.parkinglotsystem.dto.ResponseWrapper;
 import com.security.parkinglotsystem.model.Ticket;
@@ -20,6 +21,6 @@ public class ParkingController {
     @PostMapping("/park")
     public  ResponseEntity<ResponseWrapper<Ticket>> parkVehicle(@RequestBody ParkVehicleRequest request) {
         Ticket ticket = parkingService.parkVehicle(request);
-        return ResponseEntity.ok(new ResponseWrapper<>("Vehicle parked successfully", ticket));
+        return ResponseEntity.ok(new ResponseWrapper<>(FallbackMessageConstant.VEHICLE_PARKED_SUCCESSFULLY, ticket));
     }
 }

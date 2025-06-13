@@ -1,5 +1,6 @@
 package com.security.parkinglotsystem.manager;
 
+import com.security.parkinglotsystem.constant.FallbackMessageConstant;
 import com.security.parkinglotsystem.exception.NoAvailableSlotException;
 import com.security.parkinglotsystem.model.ParkingFloor;
 import com.security.parkinglotsystem.model.ParkingSlot;
@@ -31,6 +32,6 @@ public class ParkingLotManager {
                 return ticketService.createTicket(vehicle, floor.getFloorNumber(), availableSlot.getSlotNumber());
             }
         }
-        throw new NoAvailableSlotException("No available slot for vehicle type: " + vehicle.getType());
+        throw new NoAvailableSlotException(FallbackMessageConstant.NO_AVAILABLE_SLOT + vehicle.getType());
     }
 }
