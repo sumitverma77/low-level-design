@@ -14,7 +14,7 @@ This repository serves as a dedicated space to practice and strengthen my object
 
 - [Parking Lot System](./parking%20lot%20system)  
   **Key Learnings:** Low-Level Design, OOP: (Inheritance, abstraction, composition), SOLID principles  
-  **Design Patterns:** Strategy, Singleton, Factory
+  **Design Patterns used:** [Design Pattern Used](./parking%20lot%20system/DESIGN_PATTERNS.md)
 ---
 
 ## 🛠 Tech Stack
